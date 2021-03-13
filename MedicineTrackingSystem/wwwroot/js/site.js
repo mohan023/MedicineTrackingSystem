@@ -6,24 +6,33 @@
 $(document).ready(function () {
     $("#Create").click(function (e) {
         e.preventDefault();
+        var _data = {
+
+            id: $("#Id").val(),
+            name: $("#Name").val(),
+            brand: $("#Brand").val(),
+            price: $("#Price").val(),
+            quantity: $("#Quantity").val(),
+            expiryDate: $("#ExpiryDate").val(),
+            notes: $("#Notes").val()
+        }
+
         $.ajax({
             type: "POST",
-            beforeSend: function (request) {
-                request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-            },
             url: "http://localhost:57647/api/Medicine",
-            data: {
-                id: $("#Id").val(),
-                Name: $("#Name").val(),
-                Brand: $("#Brand").val(),
-                Price: $("#Price").val(),
-                Quantity: $("#Quantity").val(),
-                ExpiryDate: $("#ExpiryDate").val(),
-                Notes: $("#Notes").val()
-            },
-            
+            //beforeSend: function (request) {
+            //    request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            //},
+            data: JSON.stringify(_data),
+
+            contentType: "application/json",
+
             success: function (result) {
-                $("#sharelink").html(result);
+                //$("#sharelink").html(result);
+                alert(result);
+            },
+            error: function (e) {
+                console.log(e);
             }
         });
     });

@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:57631/Medicine",
+      "applicationUrl": "http://localhost:57631",
       "sslPort": 0
     }
   },
